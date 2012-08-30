@@ -1,0 +1,362 @@
+<!DOCTYPE html >
+
+<!--head tag begin-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--Title-->
+<title>JavaScript Validation on All HTML5 Form Elements</title>
+
+<!--Link to external style sheet-->
+<link rel="stylesheet" href="css/css.css" type="text/css" />
+
+<!--Link to external javascript file-->
+<script src="js/validation.js" type="text/javascript"></script>
+<script type="text/javascript">
+//Function for formValidation()
+function formValidation()
+{	
+		//code for checking of validations using if condition
+		if(isNotEmptyTextbox(register.username,5,8,"User Name"))//validation for checking userid
+		{
+		if(isPasswordBox(register.password,6,"password"))//validation for checking password
+			{
+			if(isNotEmptyTextbox(register.firstname,2,6,"First Name"))//validation for checking firstname
+				{
+				if(isNotEmptyTextbox(register.lastname,2,15,"Last Name"))//validation for checking lastname
+					{
+					if(isEmptyTextbox(register.picture,"picture"))//validation for checking upload of a picture
+						{
+						if(isValidRadioButton(register.gender,"gender"))//validation for checking the gender radio button 
+							{
+							if(isSelectBox(register.day,"day"))//validation to select day using select box
+								{
+								if(isSelectBox(register.month,"month"))//validation to select month using select box
+									{
+									if(isSelectBox(register.year,"year"))//validation to select year using select box
+										{
+										if(isValidCheckBox(register.hobbies,"hobbies"))//validation for checking hobbies
+											{
+											//validation to select the country using select box
+											if(isSelectBox(register.haveto,"What you have to be"))
+												{
+												if(isValidPhoneNum(register.phone,"phone number"))//validation for phonenumber
+													{
+													//to display message after entire validation completed
+														validationMessage();
+													}//username 
+												}//password
+											}//firstname
+										}//lastname
+									}//picture
+								}//gender
+							}//day
+						}//month
+					}//year
+				}//hobbies
+			}//have to be
+		}//Phone no
+		return false;
+}//formValidation() close
+
+//function for validation of a message
+function validationMessage()
+{
+	document.getElementById("message").innerHTML="Well Done! you sucessfully read this important alert message";
+}
+
+//function for progress bar incrementation
+function progress()
+{
+	if(register.username.value){document.getElementById("progress_increment").style.width="70px";}
+	if(register.password.value){document.getElementById("progress_increment").style.width="140px";}
+	if(register.firstname.value){document.getElementById("progress_increment").style.width="210px";}
+	if(register.lastname.value){document.getElementById("progress_increment").style.width="280px";}
+	if(register.picture.value){document.getElementById("progress_increment").style.width="350px";}
+	if(register.gender.value){document.getElementById("progress_increment").style.width="420px";}
+	if(register.day.value){document.getElementById("progress_increment").style.width="440px";}
+	if(register.month.value){document.getElementById("progress_increment").style.width="460px";}
+	if(register.year.value){document.getElementById("progress_increment").style.width="490px";}
+	if(register.hobbies.value){document.getElementById("progress_increment").style.width="540px";}
+	if(register.haveto.value){document.getElementById("progress_increment").style.width="630px";}
+	if(register.phone.value){document.getElementById("progress_increment").style.width="700px";}
+	
+}
+
+
+</script>
+
+</head>
+
+<!--head tag end-->
+
+<!--Body tag begin-->
+<body>
+
+	<!--main_container begin-->
+	<div id="main_container">
+    
+    	<!--Header begin-->
+        
+    	<header class="header">
+        	<h2>Generic JavaScript Form Validation functions</h2>
+        </header>
+        
+        <!--Header end-->
+        
+        <!--form_content begin-->
+        
+        <div class="form_content">
+        
+        	<!--paragraph to display message-->
+        
+            <p id="message"></p>
+            
+            <!--paragraph end-->
+            
+            <!--div for progress bar-->
+            
+            <div id="progress_bar">
+                <div id="progress_increment">
+                </div>
+            </div>
+           
+           <!--progress bar end-->
+           
+           <!-- span tag for percentage of progressbar-->
+           <span id="percent"></span>
+           <!--span end-->
+           
+           <!--form begin-->
+            
+                <form name="register" onSubmit="return formValidation()" action="">
+            
+            	<!--account begin-->
+                <div class="account">
+                    
+                            <legend>Account Information</legend>
+                            <!--username-->
+                             <div class="row">         
+                                <label for="username" class="label">Username*</label>
+                                <input type="text" class="username" name="username" onBlur="progress()"><span id="span"></span>
+                            </div>
+                            
+                            <!--password-->
+                            <div class="row">         
+                                <label for="password" class="label">Password*</label>
+                                <input type="password" class="password" name="password" onBlur="progress()">
+                            </div>
+                        
+                   
+                </div>
+                
+                <!--account end-->
+                <!--personal begin-->
+                
+                <div class="personal">
+                                     
+                            <legend>Personal Information</legend>
+                            <!--firstname-->
+       
+                             <div class="row">         
+                                <label for="firstname" class="label">Firstname*</label>
+                                <input type="text"  name="firstname" onBlur="progress()" >
+                            </div>
+                            
+                            <!--lastname-->
+                            <div class="row">         
+                                <label for="lastname" class="label">Lastname*</label>
+                                <input type="text"  name="lastname" onBlur="progress()">
+                            </div>
+                            
+                            <!--picture-->
+                            <div class="row">         
+                                <label for="picture" class="label">ProfilePicture*</label>
+                                <input type="file"  name="picture" class="image" value="upload picture" onBlur="progress()">
+                            </div>
+                            
+                            <!--gender-->
+                            <div class="row">         
+                                <label for="gender" class="label">Gender*</label>
+                                 <input type="radio"  name="gender" value="male" checked class="radio" onBlur="progress()" >Male
+                                 <input type="radio"  name="gender" value="female" class="radio" onBlur="progress()">Female
+                            </div>
+                            
+                            <!--date of birth-->
+                            <div class="row">         
+                                <label for="dob" class="label">DateOfBirth*</label>
+                                
+                                <!--select element for day-->
+                                <select name="day" onBlur="progress()">
+                                    <option value="">DAY</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                                                                               
+                                </select>       
+                                
+                                <!--select element for month-->
+                                <select name="month" onBlur="progress()">
+                                    <option value="">MONTH</option>
+                                    <option value="1">JAN</option>
+                                    <option value="2">FEB</option>
+                                    <option value="3">MAR</option>
+                                    <option value="4">APR</option>
+                                    <option value="5">MAY</option>
+                                    <option value="6">JUN</option>
+                                    <option value="7">JUL</option>
+                                    <option value="8">AUG</option>
+                                    <option value="9">SEP</option>
+                                    <option value="10">OCT</option>
+                                    <option value="11">NOV</option>
+                                    <option value="12">DEC</option>
+                                                     
+                                </select>       
+                                
+                                <!--select element for year-->
+                                <select name="year" onBlur="progress()">
+                                    <option value="">YEAR</option>
+                                    <option value="1">2012</option>
+                                    <option value="2">2011</option>
+                                    <option value="3">2010</option>
+                                    <option value="4">2009</option>
+                                    <option value="5">2008</option>
+                                    <option value="6">2007</option>
+                                    <option value="7">2006</option>
+                                    <option value="8">2005</option>
+                                    <option value="9">2004</option>
+                                    <option value="10">2003</option>
+                                    <option value="11">2002</option>
+                                    <option value="12">2001</option>
+                                    <option value="13">2000</option>
+                                    <option value="14">1999</option>
+                                    <option value="15">1998</option>
+                                    <option value="16">1997</option>
+                                    <option value="17">1996</option>
+                                    <option value="18">1995</option>
+                                    <option value="19">1994</option>
+                                    <option value="20">1993</option>
+                                    <option value="21">1992</option>
+                                    <option value="22">1991</option>
+                                    <option value="23">1990</option>
+                                    <option value="24">1989</option>
+                                    <option value="25">1988</option>
+                                    <option value="26">1987</option>
+                                    <option value="27">1986</option>
+                                    <option value="28">1985</option>
+                                    <option value="29">1984</option>
+                                    <option value="30">1983</option>
+                                    <option value="31">1982</option>
+                                    <option value="14">1981</option>
+                                    <option value="15">1980</option>
+                                    <option value="16">1979</option>
+                                    <option value="17">1978</option>
+                                    <option value="18">1977</option>
+                                    <option value="19">1976</option>
+                                    <option value="20">1975</option>
+                                    <option value="21">1974</option>
+                                    <option value="22">1973</option>
+                                    <option value="23">1972</option>
+                                    <option value="24">1971</option>
+                                    <option value="25">1970</option>
+                                    <option value="26">1969</option>
+                                    <option value="27">1968</option>
+                                    <option value="28">1967</option>
+                                    <option value="29">1966</option>
+                                    <option value="30">1965</option>
+                                    <option value="31">1964</option>
+                                                                                               
+                                </select>                                               
+                            </div> 
+                            
+                            <!--Hobbies-->
+                             <div class="row">         
+                                <label for="hobbies" class="label">Hobbies*</label>
+                            <input type="checkbox"  name="hobbies" class="checkbox" value="paint" onBlur="progress()">Painting
+                            <input type="checkbox"  name="hobbies" class="checkbox" value="sing" onBlur="progress()">Singing
+                            <input type="checkbox"  name="hobbies" class="checkbox" value="travel" onBlur="progress()">Travelling
+                            <input type="checkbox"  name="hobbies" class="checkbox" value="dance" onBlur="progress()">Dancing 
+                            <input type="checkbox"  name="hobbies" class="checkbox" value="garden" onBlur="progress()">Gardening
+                            <input type="checkbox"  name="hobbies" class="checkbox" value="others" onBlur="progress()">Others
+                            </div>   
+                            
+                            <!--select box for selecting country-->
+                              <div class="row">         
+                                <label for="haveto" class="haveto">HaveBeenTo*</label>
+                                <select name="haveto" onBlur="progress()">
+                                    <option value="">Please select</option>
+                                    <option value="india">Indian</option>
+                                    <option value="america">American</option>
+                                    <option value="australia">Australian</option>
+                                    <option value="africa">African</option>
+                                    <option value="china">Chinese</option>
+                                    <option value="japan">Japanese</option>
+                                    <option value="srilanka">Srilanka</option>
+                                </select>                            
+                            </div>                    
+                       
+                   
+                </div>
+                <!--personal end-->
+                
+                <!--contact begin-->
+                
+                <div class="contact">
+                                    
+                            <legend>Contact Information</legend>
+                            
+                            <!--Phone details-->
+                             <div class="row">         
+                                <label for="phone" class="label">Phone*</label>
+                +91<input type="text" size="14px" maxlength="14px" class="phone" name="phone" onBlur="progress()">
+                            </div>
+                            
+                            <!--submit button-->
+                            <div class="row1">         
+                                <button id="submit" onClick="validationMessage()" type="submit">submit</button>
+                                <button type="reset">reset</button>
+                            </div>     
+                                                               
+                        
+                 </div>
+                 <!--contact end-->
+                </form>
+                
+                <!--form end-->
+                            
+            </div>
+            <!--form_content end-->
+    </div>
+    
+    <!--main_content end-->
+</body>
+</html>

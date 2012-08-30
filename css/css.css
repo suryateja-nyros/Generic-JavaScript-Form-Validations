@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* for html element */
+*{
+	margin:0;
+	padding:0;
+}
+
+/* for body tag */
+body{
+	margin:auto;
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(../images/bg.jpg) repeat;
+}
+
+/* for main_container div tag */
+#main_container{
+	width:1000px;
+	margin:auto;
+	box-shadow:3px 3px 3px gray;
+	background:white;
+}
+
+/* for header tag */
+.header{
+	padding:10px 0 10px 15px;
+	font-family:"Times New Roman", Times, serif;
+	font-style:oblique;
+	font-size:25px;
+	color:#5F5F5F;
+	margin:0 10px 0 10px;
+}
+
+/* for form_content div tag */
+.form_content{
+	padding:10px;
+	margin:25px 0;	
+}
+
+/* row div tag */
+.row{
+	width:800px;
+	margin:5px 0 5px 20px;
+	padding:10px 0 10px 20px;
+	font-size:16px;
+	font-weight:bold;
+}
+
+/* for label */
+label.label{
+	display:inline-block;
+	width:110px;
+	
+}
+
+/* for legend */
+legend{
+	font-size:18px;
+	font-weight:bold;
+}
+
+/* for input tag */
+input{
+	height:25px;
+	width:150px;
+	border:solid #CAF0EC 2px;
+}
+
+/* for input tag wheb focussed */
+input:focus{
+	border:solid #F97351 2px;
+	box-shadow:1px 1px 2px gray;
+}
+
+/* grouping style for account,personal,contact div tags */
+.account,.personal,.contact{
+	width:900px;
+	margin:25px 0 25px 80px;
+}
+
+/* for checkbox class of input tag */
+input.checkbox{
+	width:30px;
+}
+
+/* for username class of input tag */
+input.username{
+	background:url(../images/user.png) no-repeat left white;
+	padding-left:15px;
+	width:135px;
+}
+
+/* for username class of input tag when focussed*/
+input.username:focus{
+	background:white;
+}
+
+/* for password class of input tag */
+input.password{
+	background:url(../images/textfield_key.png)  no-repeat left white;
+	padding-left:15px;
+	width:135px;
+}
+
+/* for password class of input tag when focussed*/
+input.password:focus{
+	background:white;
+}
+
+/* for phone class of input tag when focussed*/
+input.phone:focus{
+	background:white;
+}
+
+/* for phone class of input tag */
+input.phone{
+	background:url(../images/telephone.png)  no-repeat left white;
+	padding-left:15px;
+	width:135px;
+}
+
+/* for row class of div tag */
+.row1{
+	padding-left:300px;
+}
+
+/* for message of div tag */
+#message{
+	color:#006600;
+	height:50px;
+	margin-left:100px;
+}
+
+/* for progress_bar of div tag */
+#progress_bar{
+	width:700px;
+	height:20px;
+	border:solid gray 1px;
+	background:#EFEFEF;	
+	border-radius:5px;
+}
+
+/* for progress_increment of div tag */
+#progress_bar #progress_increment{
+	background:#DD3A1E;
+	height:20px;
+	width:0;
+}
+
+/* for span tag */
+span{
+	color:#000000;
+	width:250px;
+	font-weight:bold;
+	font-size:14px;
+}
